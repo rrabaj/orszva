@@ -25,6 +25,8 @@ if st.button("Mentés"):
     c.execute("INSERT INTO users (nev, betu , orszag , varos , fiu , lany , noveny , allat , hires ,hegy , viz ,targy) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (nev, betu , orszag , varos , fiu , lany , noveny , allat , hires ,hegy , viz ,targy))
     conn.commit()
     st.success("Sikeresen mentve!")
+    st.rerun()
+
 
 st.subheader("Tárolt adatok:")
 c.execute("SELECT * FROM users")
@@ -62,7 +64,7 @@ if data:
     if st.button("Felhasználó törlése"):
         delete_user(user_id)
         st.success("Felhasználó sikeresen törölve!")
-        st.experimental_rerun()  # Az oldal újratöltése az adatok frissítéséhez
+        st.rerun()  # Az oldal újratöltése az adatok frissítéséhez
 
 st.subheader("Adatok listája")
 # st.write(get_data())
