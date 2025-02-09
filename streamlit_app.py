@@ -3,7 +3,7 @@ import sqlite3
 
 conn = sqlite3.connect("adat.db")
 c = conn.cursor()
-c.execute("CREATE TABLE IF NOT EXISTS users (nev TEXT, betu TEXT, orszag TEXT, varos TEXT, fiu TEXT, lany TEXT, noveny TEXT, allat TEXT, hires TEXT,hegy TEXT, viz TEXT,targy TEXT)")
+c.execute("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, nev TEXT, betu TEXT, orszag TEXT, varos TEXT, fiu TEXT, lany TEXT, noveny TEXT, allat TEXT, hires TEXT,hegy TEXT, viz TEXT,targy TEXT)")
 conn.commit()
 
 st.title("Ország város játék")
