@@ -42,6 +42,7 @@ if st.button("Mentés"):
     c.execute("INSERT INTO users (nev, betu , orszag , varos , fiu , lany , noveny , allat , hires ,hegy , viz ,targy) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (nev, betu , orszag , varos , fiu , lany , noveny , allat , hires ,hegy , viz ,targy))
     conn.commit()
     st.success("Sikeresen mentve!")
+    st.rerun()
     st.markdown('<script>reloadPage()</script>', unsafe_allow_html=True)
 
 
@@ -81,7 +82,7 @@ if data:
     if st.button("Felhasználó törlése"):
         delete_user(user_id)
         st.success("Felhasználó sikeresen törölve!")
-        #st.rerun()  # Az oldal újratöltése az adatok frissítéséhez
+        st.rerun()  # Az oldal újratöltése az adatok frissítéséhez
         st.markdown('<script>reloadPage()</script>', unsafe_allow_html=True)
 
 st.subheader("Adatok listája")
