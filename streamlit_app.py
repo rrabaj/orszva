@@ -31,3 +31,38 @@ c.execute("SELECT * FROM users")
 rows = c.fetchall()
 for row in rows:
     st.write(row)
+
+# Adatok lekérdezése
+def get_data():
+    c.execute("SELECT * FROM users")
+    return c.fetchall()
+
+
+
+
+# Sor törlése
+def delete_user(user_id):
+    c.execute("DELETE FROM users WHERE id = ?", (user_id,))
+    conn.commit()
+
+st.title("SQLite adatbázis sor törlése")
+
+# Meglévő adatok lekérdezése
+data = get_data()
+
+if data:
+    # Felhasználó kiválasztása törléshez
+    user_options = {f"{row[0]} - {row[1]} ({row[2]} év)": row[0] for row in data}
+    selected_user = st.selectbox("Válassz egy felhasználót törlésre:", list(user_options.keys()))
+
+    # Kiválasztott user ID-je
+    user_id = user_options[selected_user]
+
+    # Törlés gomb
+    if st.button("Felhasználó törlése"):
+        delete_user(user_id)
+        st.success("Felhasználó sikeresen törölve!")
+        st.experimental_rerun()  # Az oldal újratöltése az adatok frissítéséhez
+
+st.subheader("Adatok listája")
+st.write(get_data())
