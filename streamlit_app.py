@@ -52,7 +52,7 @@ data = get_data()
 
 if data:
     # Felhasználó kiválasztása törléshez
-    user_options = {f"{row[0]} - {row[1]} ({row[2]} év)": row[0] for row in data}
+    user_options = {f"{row[0]} - {row[1]} ({row[2]} )": row[0] for row in data}
     selected_user = st.selectbox("Válassz egy felhasználót törlésre:", list(user_options.keys()))
 
     # Kiválasztott user ID-je
@@ -65,4 +65,4 @@ if data:
         st.experimental_rerun()  # Az oldal újratöltése az adatok frissítéséhez
 
 st.subheader("Adatok listája")
-st.write(get_data())
+# st.write(get_data())
