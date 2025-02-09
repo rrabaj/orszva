@@ -22,7 +22,7 @@ viz = st.text_input("Víz")
 targy = st.text_input("Tárgy")
 
 if st.button("Mentés"):
-    c.execute("INSERT INTO users (nev, betu , orszag , varos , fiu , lany , noveny , allat , hires ,hegy , viz ,targy) VALUES (?, ?)", (nev, betu , orszag , varos , fiu , lany , noveny , allat , hires ,hegy , viz ,targy))
+    c.execute("INSERT INTO users (nev, betu , orszag , varos , fiu , lany , noveny , allat , hires ,hegy , viz ,targy) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (nev, betu , orszag , varos , fiu , lany , noveny , allat , hires ,hegy , viz ,targy))
     conn.commit()
     st.success("Sikeresen mentve!")
 
