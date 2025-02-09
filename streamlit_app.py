@@ -1,7 +1,7 @@
 import streamlit as st
 import sqlite3
 
-conn = sqlite3.connect("adatok.db")
+conn = sqlite3.connect("adat.db")
 c = conn.cursor()
 c.execute("CREATE TABLE IF NOT EXISTS users (nev TEXT, betu TEXT, orszag TEXT, varos TEXT, fiu TEXT, lany TEXT, noveny TEXT, allat TEXT, hires TEXT,hegy TEXT, viz TEXT,targy TEXT)")
 conn.commit()
